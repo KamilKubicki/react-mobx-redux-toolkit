@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+// import Footer from './redux/components/Footer'
+import { AddTodo as AddTodoRedux }  from './redux'
+import { AddTodo as AddTodoReduxToolkit }  from './reduxtToolkit'
+import TodoList from './redux/containers/TodoList'
+import { TodoList as TodoListReduxToolkit }from './reduxtToolkit/features/todos'
+
+import { AddTodo as AddTodoMobx } from './mobx/components/AddTodo'
+
+import { Row, Col, Button, Card } from 'antd';
+
+//AntD integration
+import { DatePicker } from 'antd';
+import 'antd/dist/antd.css';
+import StateManagementCard from "./common/StateManagementCard";
+
+const App = () => (
+    <div>
+        <Row gutter={16}>
+            <Col span={8}>
+                <StateManagementCard title="Mobx">
+                    {/*<AddTodoMobx />*/}
+                </StateManagementCard>
+            </Col>
+            <Col span={8}>
+                <StateManagementCard title="Redux">
+                    <AddTodoRedux />
+                    <TodoList />
+                    {/*<Footer />*/}
+                </StateManagementCard>
+            </Col>
+            <Col span={8}>
+                <StateManagementCard title="Redux Toolkit">
+                    <AddTodoReduxToolkit />
+                    <TodoListReduxToolkit />
+                </StateManagementCard>
+            </Col>
+        </Row>
     </div>
-  );
-}
+)
 
 export default App;
