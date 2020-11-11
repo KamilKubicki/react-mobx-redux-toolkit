@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "antd": "^4.7.3",
     "customize-cra": "^1.0.0",
     "mobx": "^6.0.1",
     "mobx-react": "^7.0.0",
