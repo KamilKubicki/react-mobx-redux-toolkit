@@ -18,7 +18,7 @@ class AppMobx extends Component {
                 rootStore={rootStore}
                 store={rootStore.todoStore}
             >
-                <StateManagementCard title="Mobx">
+                <StateManagementCard title="Mobx" count={rootStore.todoStore.uncompletedTodosCount}>
                     <AddTodo />
                     <TodoList />
                 </StateManagementCard>
