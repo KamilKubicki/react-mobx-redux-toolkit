@@ -5,7 +5,7 @@ import StateManagementCard from "./common/StateManagementCard"
 import {createStore} from 'redux'
 import rootReducer from "./redux/reducers"
 //Components
-import {AddTodo as AddTodoRedux} from './redux'
+import { AddTodo } from './redux'
 import TodoList from './redux/containers/TodoList'
 
 class AppRedux extends Component {
@@ -18,7 +18,7 @@ class AppRedux extends Component {
         return (
             <Provider store={this.store}>
                 <StateManagementCard title="Redux">
-                    <AddTodoRedux />
+                    <AddTodo />
                     <TodoList />
                 </StateManagementCard>
             </Provider>

@@ -5,8 +5,8 @@ import StateManagementCard from "./common/StateManagementCard"
 import { configureStore } from '@reduxjs/toolkit'
 import rootReduxToolkitReducer from './reduxtToolkit/reducers'
 //Features
-import { TodoList as TodoListReduxToolkit }from './reduxtToolkit/features/todos'
-import { AddTodo as AddTodoReduxToolkit }  from './reduxtToolkit'
+import { AddTodo }  from './reduxtToolkit'
+import { TodoList }from './reduxtToolkit/features/todos'
 
 class AppReduxToolkit extends Component {
     constructor(props) {
@@ -20,8 +20,8 @@ class AppReduxToolkit extends Component {
         return (
             <Provider store={this.store}>
                 <StateManagementCard title="Redux Toolkit">
-                    <AddTodoReduxToolkit />
-                    <TodoListReduxToolkit />
+                    <AddTodo />
+                    <TodoList />
                 </StateManagementCard>
             </Provider>
         )

@@ -3,11 +3,14 @@ import { connect } from 'react-redux';
 import { List  } from 'antd'
 import { toggleTodo } from './todosSlice'
 import Todo from "../../components/Todo"
+import { getUncompletedTodosCount } from "./selector";
+import TodosUncompleted from "../../../common/TodosUncompleted";
 
-const TodoList = ({ todos, toggleTodo }) => {
+const TodoList = ({ todos, toggleTodo, uncompletedTodosCount }) => {
     return (
         <List
             bordered
+            header={<TodosUncompleted count={uncompletedTodosCount}/>}
             dataSource={todos}
             renderItem={todo =>
                 <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
@@ -17,7 +20,8 @@ const TodoList = ({ todos, toggleTodo }) => {
 };
 
 const mapStateToProps = (state) => ({
-    todos: state.todos
+    todos: state.todos,
+    uncompletedTodosCount: getUncompletedTodosCount(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

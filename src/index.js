@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import { Row, Col } from 'antd';
 
+import AppMobx from "./AppMobx";
 import AppRedux from "./AppRedux";
 import AppReduxToolkit from "./AppReduxToolkit";
 
@@ -13,7 +14,7 @@ ReactDOM.render(
     <div>
         <Row gutter={16}>
             <Col span={8}>
-                {/*<AppRedux />*/}
+                <AppMobx />
             </Col>
             <Col span={8}>
                 <AppRedux />
