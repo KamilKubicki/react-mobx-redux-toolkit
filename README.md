@@ -27,7 +27,7 @@ The analysis also takes into consideration Redux Toolkit, as new recommended way
 |  | Mobx | Redux | Redux Toolkit |
 | --- | --- | --- | --- |
 | Release 1.0 | 13 Oct 2015 | 14 Aug 2015 | 23 Oct 2019 |
-| Learning curve | steep | shallow | steep |
+| Learning curve | shallow | steep | steep |
 | Verbosity | low | high | low |
 | Structure | simple | complex | simple |
 | Multiple stores | yes | no | no |
@@ -136,5 +136,5 @@ $ yarn start
 
 Navigating to https://localhost:3000 you should see the app main page.
 
-![react-mobx-redux-toolkit app](docs/react-mobx-redux-toolkit-app.png)
+![react-mobx-redux-toolkit app](docs/react-mobx-redux-toolkit-app.gif)
 
