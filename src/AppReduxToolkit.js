@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import StateManagementCard from "./common/StateManagementCard"
 //Store
 import { configureStore } from '@reduxjs/toolkit'
-import rootReduxToolkitReducer from './reduxtToolkit/reducers'
+import todosReducer from './reduxtToolkit/features/todos/todosSlice'
 //Features
 import { AddTodo }  from './reduxtToolkit'
 import { TodoList }from './reduxtToolkit/features/todos'
@@ -12,7 +12,9 @@ class AppReduxToolkit extends Component {
     constructor(props) {
         super(props)
         this.store = configureStore({
-            reducer: rootReduxToolkitReducer
+            reducer: {
+                todos: todosReducer
+            }
         })
     }
 
