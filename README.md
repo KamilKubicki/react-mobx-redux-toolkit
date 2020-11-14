@@ -1,70 +1,140 @@
-# Getting Started with Create React App
+# State Management Tools Comparison
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<div align="center">
 
-In the project directory, you can run:
+![react-mobx-redux-toolkit](docs/react-mobx-redux-toolkit.png)
+    
+</div>
 
-### `yarn start`
+If you are still not decided what state management library choose for your project ? You can find below a short comparison of two mainly used ones : Mobx, Redux.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of content
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Overview](#Overview)
+- [Main stats](#Main-stats)
+- [Installation](#Installation)
+- [Structure](#Structure)
+- [Usage](#Usage)
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Overview
 
-### `yarn build`
+At the time of writing this document, Mobx and Redux are the most popular state management frameworks. 
+The implementation of both with React gives a snapshot of complexity and structure you need to put in place to run your project.
+The analysis also takes into consideration Redux Toolkit, as new recommended way to write Redux logic.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+|  | Mobx | Redux | Redux Toolkit |
+| --- | --- | --- | --- |
+| Release 1.0 | 13 Oct 2015 | 14 Aug 2015 | 23 Oct 2019 |
+| Learning curve | steep | shallow | steep |
+| Verbosity | low | high | low |
+| Structure | simple | complex | simple |
+| Multiple stores | yes | no | no |
+| Debugging | average | excellent | excellent |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Debugging - comparison based on daily development and tests done with 'Redux DevTools' and 'MobX Developer Tools' (extensions for Chrome).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Main stats
 
-### `yarn eject`
+| Mobx | Redux | Redux Toolkit |
+| --- | --- | --- |
+| https://github.com/mobxjs/mobx | https://github.com/reduxjs/redux | https://github.com/reduxjs/redux-toolkit |
+| [![npm downloads](https://img.shields.io/npm/v/mobx.svg?style=for-the-badge&label=version)](https://www.npmjs.com/package/mobx) | [![npm downloads](https://img.shields.io/npm/v/redux.svg?style=for-the-badge&label=version)](https://www.npmjs.com/package/redux) | [![npm downloads](https://img.shields.io/npm/v/@reduxjs/toolkit.svg?style=for-the-badge&label=version)](https://www.npmjs.com/package/@reduxjs/toolkit) |
+| [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge&label=license)](https://lbesson.mit-license.org/) | [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge&label=license)](https://lbesson.mit-license.org/) | [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge&label=license)](https://lbesson.mit-license.org/) |
+| [![npm downloads](https://img.shields.io/github/stars/mobxjs/mobx.svg?style=for-the-badge&label=stars&logo=github)](https://github.com/mobxjs/mobx) | [![npm downloads](https://img.shields.io/github/stars/reduxjs/redux.svg?style=for-the-badge&label=stars&logo=github)](https://github.com/reduxjs/redux) | [![npm downloads](https://img.shields.io/github/stars/reduxjs/redux-toolkit.svg?style=for-the-badge&label=stars&logo=github)](https://github.com/reduxjs/redux-toolkit) |
+| [![npm downloads](https://img.shields.io/github/watchers/mobxjs/mobx.svg?style=for-the-badge&label=watchers&logo=github)](https://github.com/mobxjs/mobx) | [![npm downloads](https://img.shields.io/github/watchers/reduxjs/redux.svg?style=for-the-badge&label=watchers&logo=github)](https://github.com/reduxjs/redux) | [![npm downloads](https://img.shields.io/github/watchers/reduxjs/redux-toolkit.svg?style=for-the-badge&label=watchers&logo=github)](https://github.com/reduxjs/redux-toolkit) |
+| [![npm downloads](https://img.shields.io/github/forks/mobxjs/mobx.svg?style=for-the-badge&label=forks&logo=github)](https://github.com/mobxjs/mobx) | [![npm downloads](https://img.shields.io/github/forks/reduxjs/redux.svg?style=for-the-badge&label=forks&logo=github)](https://github.com/reduxjs/redux) | [![npm downloads](https://img.shields.io/github/forks/reduxjs/redux-toolkit.svg?style=for-the-badge&label=forks&logo=github)](https://github.com/reduxjs/redux-toolkit) |
+| [![npm downloads](https://img.shields.io/github/contributors/mobxjs/mobx.svg?style=for-the-badge&label=contributors&logo=github)](https://github.com/mobxjs/mobx) | [![npm downloads](https://img.shields.io/github/contributors/reduxjs/redux.svg?style=for-the-badge&label=contributors&logo=github)](https://github.com/reduxjs/redux) | [![npm downloads](https://img.shields.io/github/contributors/reduxjs/redux-toolkit.svg?style=for-the-badge&label=contributors&logo=github)](https://github.com/reduxjs/redux-toolkit) |
+| [![npm downloads](https://img.shields.io/npm/dm/mobx.svg?style=for-the-badge&label=Downloads)](https://www.npmjs.com/package/mobx) | [![npm downloads](https://img.shields.io/npm/dm/redux.svg?style=for-the-badge&label=Downloads)](https://www.npmjs.com/package/redux) | [![npm downloads](https://img.shields.io/npm/dm/@reduxjs/toolkit.svg?style=for-the-badge&label=Downloads)](https://www.npmjs.com/package/@reduxjs/toolkit) |
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Integration with React:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Mobx
+> `yarn add mobx`
+> 
+>  `yarn add mobx-react`
 
-## Learn More
+#### Redux
+> `yarn add redux`
+> 
+>  `yarn add react-redux`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Redux Toolkit
+> `yarn add @reduxjs/toolkit`
+> 
+>  `yarn add react-redux`
 
-### Code Splitting
+More about add-ons:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+> `mobx-react` : package with React component wrapper for combining React with MobX
+> 
+> More about:
+> https://github.com/mobxjs/mobx-react
 
-### Analyzing the Bundle Size
+> `react-redux` : official React bindings for Redux
+> 
+> More about:
+> https://react-redux.js.org/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Structure
 
-### Making a Progressive Web App
+#### Mobx
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```text
+app/
+├─ components/
+├─ containers/
+├─ stores/
+├─ ...
+```
+#### Redux
 
-### Advanced Configuration
+```text
+app/
+├─ actions/
+├─ components/
+├─ constants/
+├─ containers/
+├─ reducers/
+├─ selectors/
+├─ ...
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### Redux Toolkit
 
-### Deployment
+```text
+app/
+├─ components/
+├─ features/
+│     └─ feature_name
+├─ ...
+```
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Create local repository and clone the code:
 
-### `yarn build` fails to minify
+```sh
+$ git clone https://github.com/KamilKubicki/react-mobx-redux-toolkit.git
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Install dependencies:
+
+```sh
+$ yarn
+```
+
+Run the app:
+
+```sh
+$ yarn start
+```
+
+Navigating to https://localhost:3000 you should see the app main page.
+
+![react-mobx-redux-toolkit app](docs/react-mobx-redux-toolkit-app.png)
+
