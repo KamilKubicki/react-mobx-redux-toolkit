@@ -285,7 +285,7 @@ Before using Redux Toolkit you still need to know basics of Redux. The concept r
 - requires complex folder structure
 - no clear best practices given to structure the code
 
-The example of Slice from the application you can lunch following [Usage](#Usage) part:
+The example of Slice (from the application you can lunch following [Usage](#Usage) part) integrating action's and reducer's logic from Redux:
 
 ```javascript 
 //features/todos/todoSlice.js
