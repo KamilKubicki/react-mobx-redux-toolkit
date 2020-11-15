@@ -9,7 +9,7 @@
 
 If you are still not decided which state management library choose for your project, you can find below a short comparison of two mainly used ones : MobX, Redux.
 
-Please note that this is not a tutorial intended to discover the libraries, and require basic knowledge of javascript and analysed tools.
+Please note that this is not a tutorial intended to discover the libraries, and requires basic knowledge of javascript and analysed tools.
 
 ## Table of content
 
@@ -107,7 +107,7 @@ Before exploring MobX and Redux, here is a dictionary of common terms:
 - Reducer - pure function that receives a state and action as arguments, copies the existing state and makes changes to the copied values (immutable update)
 - Selector - function that computes derived data from the store
 - Decorator - declaration that is used to modify class properties/methods
-- Mutable -  state of an object  can be modified after object creation. In MobX we modify state directly, mutating previous store value - example:
+- Mutable -  state of an object  can be modified after object creation. In MobX state can be modified directly, mutating previous store value - example:
 ```javascript 
    this.todos.push({id: id, text, completed: false});
 ```
@@ -238,7 +238,7 @@ const todos = (state = [], action) => {
 
 ...
 ```
-Selector computes derived data (using reselect library) when state `getTodos` updates:
+Selector computes derived data (using 'reselect' library) when state `getTodos` updates:
 
 > More about:
 > https://github.com/reduxjs/reselect
@@ -280,13 +280,13 @@ As the time goes by, and one year means a century in web development world, a ne
 > <cite>[https://redux.js.org/redux-toolkit](https://redux.js.org/redux-toolkit)</cite>
 
 Redux Toolkit introduced slices, based on ducks modular pattern that holds reducers, action types and action creators inside one directory that represents the feature.
-Library includes among other things Redux, Reselect, Redux-thunk and immer. Which is great, the tool cares of immutability itself making immutable changes with normal mutative code.
+Library includes among other things Redux, Reselect, Redux-thunk and immer. The tool cares of immutability itself making immutable changes with normal mutative code.
 Before using Redux Toolkit you still need to know basics of Redux. The concept replies simply on most common issues raised against Redux like:
 
 - store configuration is complicate
 - code is verbose
 - requires complex folder structure
-- no clear best practices given to structure the code
+- no clear/best practices given to organize the code
 
 The example of Slice (from the application you can lunch following [Usage](#Usage) part) integrating action's and reducer's logic from Redux:
 
