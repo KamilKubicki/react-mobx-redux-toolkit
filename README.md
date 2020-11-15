@@ -7,7 +7,7 @@
 
 </div>
 
-If you are still not decided what state management library choose for your project ? You can find below a short comparison of two mainly used ones : Mobx, Redux.
+If you are still not decided which state management library choose for your project, you can find below a short comparison of two mainly used ones : Mobx, Redux.
 
 ## Table of content
 
