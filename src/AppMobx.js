@@ -8,10 +8,6 @@ import AddTodo from './mobx/containers/AddTodo'
 import TodoList from './mobx/containers/TodoList'
 
 class AppMobx extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return (
             <Provider

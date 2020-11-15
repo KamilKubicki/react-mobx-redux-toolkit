@@ -3,11 +3,13 @@
 
 <div align="center">
 
-![react-mobx-redux-toolkit](docs/react-mobx-redux-toolkit.png)
+![react-mobx-redux-toolkit-cover](docs/react-mobx-redux-toolkit-cover.png)
 
 </div>
 
-If you are still not decided which state management library choose for your project, you can find below a short comparison of two mainly used ones : Mobx, Redux.
+If you are still not decided which state management library choose for your project, you can find below a short comparison of two mainly used ones : MobX, Redux.
+
+Please note that this is not a tutorial intended to discover the libraries, and require basic knowledge of javascript and analysed tools.
 
 ## Table of content
 
@@ -16,18 +18,19 @@ If you are still not decided which state management library choose for your proj
 - [Installation](#Installation)
 - [Features](#Features)
 - [Structure](#Structure)
+- [Debug](#Debug)
 - [Usage](#Usage)
 
 
 ### Overview
 
-At the time of writing this document, Mobx and Redux are the most popular state management frameworks. 
-You can use Mobx/Redux with vanilla Javascript, React or even Angular - there exist bindings for each library to make it work with those store management tools.
+At the time of writing this document, MobX and Redux are the most popular state management frameworks. 
+You can use MobX/Redux with vanilla Javascript, React or even Angular - there exist bindings for each library to make it work with those store management tools.
 Enclosed app example is an implementation of both with React, and gives a snapshot of complexity and structure you need to put in place to run your project (to see it in action, jump directly to [Usage](#Usage)
  part).
 The analysis also takes into consideration Redux Toolkit, as new recommended way to write Redux logic.
 
-|  | Mobx | Redux | Redux Toolkit |
+|  | MobX | Redux | Redux Toolkit |
 | --- | --- | --- | --- |
 | Release 1.0 | 13 Oct 2015 | 14 Aug 2015 | 23 Oct 2019 |
 | Learning curve | shallow | steep | steep |
@@ -41,7 +44,7 @@ Debugging - comparison based on daily development and tests done with 'Redux Dev
 
 ### Main stats
 
-| Mobx | Redux | Redux Toolkit |
+| MobX | Redux | Redux Toolkit |
 | --- | --- | --- |
 | https://github.com/mobxjs/mobx | https://github.com/reduxjs/redux | https://github.com/reduxjs/redux-toolkit |
 | [![npm downloads](https://img.shields.io/npm/v/mobx.svg?style=for-the-badge&label=version)](https://www.npmjs.com/package/mobx) | [![npm downloads](https://img.shields.io/npm/v/redux.svg?style=for-the-badge&label=version)](https://www.npmjs.com/package/redux) | [![npm downloads](https://img.shields.io/npm/v/@reduxjs/toolkit.svg?style=for-the-badge&label=version)](https://www.npmjs.com/package/@reduxjs/toolkit) |
@@ -57,7 +60,7 @@ Debugging - comparison based on daily development and tests done with 'Redux Dev
 
 Integration with React:
 
-#### Mobx
+#### MobX
 > `yarn add mobx`
 > 
 > `yarn add mobx-react`
@@ -94,7 +97,7 @@ More about add-ons:
 
 ### Features
 
-Before exploring Mobx and Redux, here is a dictionary of common terms: 
+Before exploring MobX and Redux, here is a dictionary of common terms: 
 
 - Store - holds the state of the application
 - Components - dumb/presentational components (discover state through props passed as params)
@@ -104,7 +107,7 @@ Before exploring Mobx and Redux, here is a dictionary of common terms:
 - Reducer - pure function that receives a state and action as arguments, copies the existing state and makes changes to the copied values (immutable update)
 - Selector - function that computes derived data from the store
 - Decorator - declaration that is used to modify class properties/methods
-- Mutable -  state of an object  can be modified after object creation. In Mobx we modify state directly, mutating previous store value - example:
+- Mutable -  state of an object  can be modified after object creation. In MobX we modify state directly, mutating previous store value - example:
 ```javascript 
    this.todos.push({id: id, text, completed: false});
 ```
@@ -117,9 +120,9 @@ In Redux, that term means the state becomes each time a brand new object instead
     ]
 ```
 
-#### Mobx
-Mobx gives possibility to define multiple stores and its state is mutable. 
-Mobx's world is implicit where observable properties and actions update the store.
+#### MobX
+MobX gives possibility to define multiple stores and its state is mutable. 
+MobX's world is implicit where observable properties and actions update the store.
 
 ```javascript 
 //TodoStore.js
@@ -175,14 +178,14 @@ class TodoList extends Component {
 ```
 
 
-![Mobx flow](docs/mobx-flow.png)
-<cite>Mobx flow</cite>
+![MobX flow](docs/mobx-flow.png)
+<cite>MobX flow</cite>
 
 #### Redux
 The core principles of Redux is only one store as the single source of truth.
-The state is immutable which makes it more predictable. The structure of Redux is slightly more complex than in Mobx. 
+The state is immutable which makes it more predictable. The structure of Redux is slightly more complex than in MobX. 
 Redux uses actions, action creators, reducers to update the data and requires much more effort to set it up initially.  
-Updates have to be tracked manually using subscribers (@computed variables in Mobx) - subscriber triggers after the root reducer has returned a new state.
+Updates have to be tracked manually using subscribers (@computed variables in MobX) - subscriber triggers after the root reducer has returned a new state.
 
 In Redux only way to update the store is to call an action. Example of an action creator - a factory that creates an action containing type and payload:
 
@@ -318,7 +321,7 @@ const todosSlice = createSlice({
 
 Folder structures from each Store management tool:
 
-#### Mobx
+#### MobX
 
 ```text
 app/
@@ -349,6 +352,16 @@ app/
 │     └─ feature_name
 ├─ ...
 ```
+
+## Debug
+
+Debugging with 'MobX Developer Tools' and 'Redux DevTools' as extensions for Chrome:
+
+#### MobX Developer Tools
+![react-mobx-redux-toolkit Mobx debug](docs/react-mobx-redux-toolkit-mobx_debug.gif)
+
+#### Redux DevTools
+![react-mobx-redux-toolkit Redux debug](docs/react-mobx-redux-toolkit-redux_debug.gif)
 
 ## Usage
 
